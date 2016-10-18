@@ -12,19 +12,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIAlertController (SAPExtensions)
 
-+ (void)presentAlertControllerWithTitle:(nullable NSString *)title
++ (void)presentWithTitle:(nullable NSString *)title
                                 message:(nullable NSString *)message; // with defaul OK button
 
-+ (void)presentAlertControllerWithTitle:(nullable NSString *)title
++ (void)presentWithTitle:(nullable NSString *)title
                                 message:(nullable NSString *)message
                       cancelButtonTitle:(nullable NSString *)cancelButtonTitle;
 
-+ (void)presentAlertControllerWithTitle:(nullable NSString *)title
++ (void)presentWithTitle:(nullable NSString *)title
                                 message:(nullable NSString *)message
                      primaryActionTitle:(nullable NSString *)primaryActionTitle
                                 handler:(void (^ _Nullable)(UIAlertAction *action))handler
                       cancelButtonTitle:(nullable NSString *)cancelButtonTitle;
-+ (void)presentAlertControllerWithTitle:(nullable NSString *)title
++ (void)presentWithTitle:(nullable NSString *)title
                                 message:(nullable NSString *)message
                      primaryActionTitle:(nullable NSString *)primaryActionTitle
                                 handler:(void (^ _Nullable)(UIAlertAction *action))handler
@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
                       cancelButtonTitle:(nullable NSString *)cancelButtonTitle;
 
 + (nullable UIViewController *)viewControllerForPresentingAlert;
+
++ (void)presentWithError:(NSError *)error;
 
 @end
 
