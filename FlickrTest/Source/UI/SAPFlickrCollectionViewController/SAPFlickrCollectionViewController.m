@@ -15,13 +15,14 @@
 #import "SAPFlickrLayout.h"
 #import "SAPArrayModel.h"
 #import "SAPFlickrImage.h"
+#import "SAPFlickrContext.h"
 
 #import "UICollectionView+SAPExtensions.h"
 #import "UINib+SAPExtensions.h"
 
 #import "SAPViewControllerMacro.h"
 
-static CGFloat const kSAPAnnotationPadding = 4.0;
+static CGFloat const kSAPAnnotationPadding      = 4.0;
 static CGFloat const kSAPAnnotationHeaderHeight = 20.0;
 
 static NSInteger const TEMPITEMSCOUNT = 50;
@@ -33,7 +34,7 @@ UICollectionViewDelegate,
 UICollectionViewDataSource,
 SAPFlickrLayoutDelegate>
 
-@property (nonatomic, strong)   SAPArrayModel       *images;
+@property (nonatomic, readonly) SAPArrayModel       *images;
 @property (nonatomic, readonly) UICollectionView    *collectionView;
 
 @end
@@ -47,6 +48,14 @@ SAPFlickrLayoutDelegate>
 
 - (UICollectionView *)collectionView {
     return self.mainView.collectionView;
+}
+
+- (SAPArrayModel *)images {
+    return (SAPArrayModel *)(self.model);
+}
+
+- (SAPContext *)modelContext {
+    return [SAPFlickrContext contextWithModel:self.model];
 }
 
 #pragma mark-
@@ -65,7 +74,6 @@ SAPFlickrLayoutDelegate>
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass(cellClass)];
     
     //temporary code
-    self.images = [SAPArrayModel new];
     UIImage *image = [UIImage imageNamed:@"orbit"];
     NSString *shortTestComment = @"My short test comment";
     NSString *testComment = @"My test comment bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ";
@@ -129,6 +137,17 @@ heightForAnnotationAtIndexPath:(NSIndexPath *)indexPath
     CGFloat height = kSAPAnnotationPadding + kSAPAnnotationHeaderHeight + commentHeight + kSAPAnnotationPadding;
     
     return height;
+}
+
+#pragma mark -
+#pragma mark Public
+
+//- (void)updateViewControllerWithModel:(id)model {
+//    self.mainView.model = model;
+//}
+
+- (void)finishModelSetting {
+    self.context = self.modelContext;
 }
 
 @end

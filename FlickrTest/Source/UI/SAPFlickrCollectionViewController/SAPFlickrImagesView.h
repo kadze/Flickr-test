@@ -6,9 +6,11 @@
 //  Copyright © 2016 SAP. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <UIkit/UICollectionView.h>
 
-@interface SAPFlickrImagesView : UIView
+#import "SAPView.h"
+
+@interface SAPFlickrImagesView : SAPView
 @property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
 
 @end

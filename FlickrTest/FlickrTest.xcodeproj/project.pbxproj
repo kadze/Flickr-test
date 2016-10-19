@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E4BEC7F1DB665B0006BD803 /* SAPFlickrLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BEC7E1DB665B0006BD803 /* SAPFlickrLayoutAttributes.m */; };
+		5E4BEC861DB73E68006BD803 /* SAPFlickrContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BEC851DB73E68006BD803 /* SAPFlickrContext.m */; };
 		5EC2D5671DB4C3F000016473 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5661DB4C3F000016473 /* main.m */; };
 		5EC2D56A1DB4C3F000016473 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5691DB4C3F000016473 /* AppDelegate.m */; };
 		5EC2D5751DB4C3F000016473 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC2D5731DB4C3F000016473 /* LaunchScreen.storyboard */; };
@@ -80,6 +81,8 @@
 /* Begin PBXFileReference section */
 		5E4BEC7D1DB665B0006BD803 /* SAPFlickrLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPFlickrLayoutAttributes.h; sourceTree = "<group>"; };
 		5E4BEC7E1DB665B0006BD803 /* SAPFlickrLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPFlickrLayoutAttributes.m; sourceTree = "<group>"; };
+		5E4BEC841DB73E68006BD803 /* SAPFlickrContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPFlickrContext.h; sourceTree = "<group>"; };
+		5E4BEC851DB73E68006BD803 /* SAPFlickrContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPFlickrContext.m; sourceTree = "<group>"; };
 		5EC2D5621DB4C3F000016473 /* FlickrTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC2D5661DB4C3F000016473 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5EC2D5681DB4C3F000016473 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -247,6 +250,15 @@
 			path = SAPFlickrLayoutAttributes;
 			sourceTree = "<group>";
 		};
+		5E4BEC801DB73E0D006BD803 /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				5E4BEC841DB73E68006BD803 /* SAPFlickrContext.h */,
+				5E4BEC851DB73E68006BD803 /* SAPFlickrContext.m */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
 		5EC2D5591DB4C3F000016473 = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +294,7 @@
 			children = (
 				5EC2D5801DB4C56500016473 /* Library */,
 				5EC2D5811DB4C56500016473 /* Models */,
+				5E4BEC801DB73E0D006BD803 /* Contexts */,
 				5EC2D5821DB4C56500016473 /* UI */,
 			);
 			path = Source;
@@ -1089,6 +1102,7 @@
 				5EC2D6551DB4C76400016473 /* UIAlertAction+SAPExtensions.m in Sources */,
 				5EC2D69D1DB569A100016473 /* SAPFlickrCollectionViewController.m in Sources */,
 				5EC2D6681DB4C76400016473 /* UITableView+SAPCollectionChangeModel.m in Sources */,
+				5E4BEC861DB73E68006BD803 /* SAPFlickrContext.m in Sources */,
 				5EC2D6721DB4C76400016473 /* SAPViewController.m in Sources */,
 				5EC2D6421DB4C76400016473 /* CGGeometry+SAPExtensions.m in Sources */,
 				5EC2D6581DB4C76400016473 /* UITableView+SAPExtensions.m in Sources */,
