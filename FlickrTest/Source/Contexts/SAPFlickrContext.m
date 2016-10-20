@@ -128,7 +128,7 @@ static NSString * const kSAPRealNameKey     = @"realname";
         SAPFlickrImage *imageModel = [SAPFlickrImage new];
         imageModel.title = [imageInfo objectForKey:kSAPTitleKey];
         imageModel.ID = [imageInfo objectForKey:kSAPIDKey];
-        imageModel.urlString = [NSString stringWithFormat:@"https://farm%@.static.flickr.com/%@/%@_%@_m.jpg",
+        imageModel.urlString = [NSString stringWithFormat:@"https://farm%@.static.flickr.com/%@/%@_%@_c.jpg",
                                 [imageInfo objectForKey:kSAPFarmKey],
                                 [imageInfo objectForKey:kSAPServerKey],
                                 [imageInfo objectForKey:kSAPIDKey],
