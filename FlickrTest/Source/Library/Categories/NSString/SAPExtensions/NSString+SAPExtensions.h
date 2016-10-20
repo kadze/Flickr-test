@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <UIKit/UIFont.h>
 
 @interface NSString (SAPExtensions)
 
@@ -21,5 +23,7 @@
 
 - (instancetype)randomStringFromSelfOfLength:(NSUInteger)length;
 - (instancetype)stringByReplacingOccurrencesOfKeysWithValuesInDictionary:(NSDictionary *)dictionary;
+
+- (CGFloat)heigthWithFont:(UIFont *)font width:(CGFloat)width;
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E4BEC7F1DB665B0006BD803 /* SAPFlickrLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BEC7E1DB665B0006BD803 /* SAPFlickrLayoutAttributes.m */; };
+		5E4BEC861DB73E68006BD803 /* SAPFlickrContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BEC851DB73E68006BD803 /* SAPFlickrContext.m */; };
 		5EC2D5671DB4C3F000016473 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5661DB4C3F000016473 /* main.m */; };
 		5EC2D56A1DB4C3F000016473 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5691DB4C3F000016473 /* AppDelegate.m */; };
 		5EC2D5751DB4C3F000016473 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC2D5731DB4C3F000016473 /* LaunchScreen.storyboard */; };
@@ -38,7 +40,6 @@
 		5EC2D65A1DB4C76400016473 /* SAPContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5D61DB4C76400016473 /* SAPContext.m */; };
 		5EC2D65B1DB4C76400016473 /* SAPCoreDataArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5DA1DB4C76400016473 /* SAPCoreDataArrayModel.m */; };
 		5EC2D65C1DB4C76400016473 /* SAPCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5DD1DB4C76400016473 /* SAPCoreDataController.m */; };
-		5EC2D65D1DB4C76400016473 /* SAPMagicalRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5E01DB4C76400016473 /* SAPMagicalRecordViewController.m */; };
 		5EC2D65E1DB4C76400016473 /* SAPIdentifiableManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5E41DB4C76400016473 /* SAPIdentifiableManagedObject.m */; };
 		5EC2D65F1DB4C76400016473 /* SAPManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5E61DB4C76400016473 /* SAPManagedObject.m */; };
 		5EC2D6601DB4C76400016473 /* SAPCollectionChangeDoubleIndexModel +UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D5EB1DB4C76400016473 /* SAPCollectionChangeDoubleIndexModel +UITableView.m */; };
@@ -67,9 +68,25 @@
 		5EC2D6771DB4C76400016473 /* SAPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D6311DB4C76400016473 /* SAPView.m */; };
 		5EC2D6781DB4C76400016473 /* SAPDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D6351DB4C76400016473 /* SAPDispatch.m */; };
 		5EC2D6791DB4C76400016473 /* SAPSetters.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D6381DB4C76400016473 /* SAPSetters.m */; };
+		5EC2D6851DB4D92D00016473 /* UICollectionView+SAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D6841DB4D92D00016473 /* UICollectionView+SAPExtensions.m */; };
+		5EC2D69D1DB569A100016473 /* SAPFlickrCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D6921DB569A100016473 /* SAPFlickrCollectionViewController.m */; };
+		5EC2D69E1DB569A100016473 /* SAPFlickrCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC2D6931DB569A100016473 /* SAPFlickrCollectionViewController.xib */; };
+		5EC2D69F1DB569A100016473 /* SAPFlickrImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D6961DB569A100016473 /* SAPFlickrImageCell.m */; };
+		5EC2D6A01DB569A100016473 /* SAPFlickrImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC2D6971DB569A100016473 /* SAPFlickrImageCell.xib */; };
+		5EC2D6A11DB569A100016473 /* SAPFlickrImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D6991DB569A100016473 /* SAPFlickrImagesView.m */; };
+		5EC2D6A21DB569A100016473 /* SAPFlickrLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D69C1DB569A100016473 /* SAPFlickrLayout.m */; };
+		5EC2D6A61DB60DAE00016473 /* SAPFlickrImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2D6A51DB60DAE00016473 /* SAPFlickrImage.m */; };
+		E02E82215E1310531D5A84AA /* libPods-FlickrTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13114BB85ACFE9B9B8412D75 /* libPods-FlickrTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06F32732C748A6CCA9776844 /* Pods-FlickrTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrTest/Pods-FlickrTest.debug.xcconfig"; sourceTree = "<group>"; };
+		13114BB85ACFE9B9B8412D75 /* libPods-FlickrTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlickrTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49A3207A30F867F36DDFBEE6 /* Pods-FlickrTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrTest/Pods-FlickrTest.release.xcconfig"; sourceTree = "<group>"; };
+		5E4BEC7D1DB665B0006BD803 /* SAPFlickrLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPFlickrLayoutAttributes.h; sourceTree = "<group>"; };
+		5E4BEC7E1DB665B0006BD803 /* SAPFlickrLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPFlickrLayoutAttributes.m; sourceTree = "<group>"; };
+		5E4BEC841DB73E68006BD803 /* SAPFlickrContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPFlickrContext.h; sourceTree = "<group>"; };
+		5E4BEC851DB73E68006BD803 /* SAPFlickrContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPFlickrContext.m; sourceTree = "<group>"; };
 		5EC2D5621DB4C3F000016473 /* FlickrTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC2D5661DB4C3F000016473 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5EC2D5681DB4C3F000016473 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,8 +150,6 @@
 		5EC2D5DA1DB4C76400016473 /* SAPCoreDataArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPCoreDataArrayModel.m; sourceTree = "<group>"; };
 		5EC2D5DC1DB4C76400016473 /* SAPCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPCoreDataController.h; sourceTree = "<group>"; };
 		5EC2D5DD1DB4C76400016473 /* SAPCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPCoreDataController.m; sourceTree = "<group>"; };
-		5EC2D5DF1DB4C76400016473 /* SAPMagicalRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPMagicalRecordViewController.h; sourceTree = "<group>"; };
-		5EC2D5E01DB4C76400016473 /* SAPMagicalRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPMagicalRecordViewController.m; sourceTree = "<group>"; };
 		5EC2D5E31DB4C76400016473 /* SAPIdentifiableManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPIdentifiableManagedObject.h; sourceTree = "<group>"; };
 		5EC2D5E41DB4C76400016473 /* SAPIdentifiableManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPIdentifiableManagedObject.m; sourceTree = "<group>"; };
 		5EC2D5E51DB4C76400016473 /* SAPManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPManagedObject.h; sourceTree = "<group>"; };
@@ -203,6 +218,20 @@
 		5EC2D63E1DB4C76400016473 /* SAPOwnershipMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPOwnershipMacro.h; sourceTree = "<group>"; };
 		5EC2D63F1DB4C76400016473 /* SAPViewControllerMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPViewControllerMacro.h; sourceTree = "<group>"; };
 		5EC2D6411DB4C76400016473 /* SAPModelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPModelView.h; sourceTree = "<group>"; };
+		5EC2D6831DB4D92D00016473 /* UICollectionView+SAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+SAPExtensions.h"; sourceTree = "<group>"; };
+		5EC2D6841DB4D92D00016473 /* UICollectionView+SAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+SAPExtensions.m"; sourceTree = "<group>"; };
+		5EC2D6911DB569A100016473 /* SAPFlickrCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPFlickrCollectionViewController.h; sourceTree = "<group>"; };
+		5EC2D6921DB569A100016473 /* SAPFlickrCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPFlickrCollectionViewController.m; sourceTree = "<group>"; };
+		5EC2D6931DB569A100016473 /* SAPFlickrCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAPFlickrCollectionViewController.xib; sourceTree = "<group>"; };
+		5EC2D6951DB569A100016473 /* SAPFlickrImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPFlickrImageCell.h; sourceTree = "<group>"; };
+		5EC2D6961DB569A100016473 /* SAPFlickrImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPFlickrImageCell.m; sourceTree = "<group>"; };
+		5EC2D6971DB569A100016473 /* SAPFlickrImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAPFlickrImageCell.xib; sourceTree = "<group>"; };
+		5EC2D6981DB569A100016473 /* SAPFlickrImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPFlickrImagesView.h; sourceTree = "<group>"; };
+		5EC2D6991DB569A100016473 /* SAPFlickrImagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPFlickrImagesView.m; sourceTree = "<group>"; };
+		5EC2D69B1DB569A100016473 /* SAPFlickrLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPFlickrLayout.h; sourceTree = "<group>"; };
+		5EC2D69C1DB569A100016473 /* SAPFlickrLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPFlickrLayout.m; sourceTree = "<group>"; };
+		5EC2D6A41DB60DAE00016473 /* SAPFlickrImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPFlickrImage.h; sourceTree = "<group>"; };
+		5EC2D6A51DB60DAE00016473 /* SAPFlickrImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPFlickrImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,12 +239,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02E82215E1310531D5A84AA /* libPods-FlickrTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E4BEC7C1DB6657E006BD803 /* SAPFlickrLayoutAttributes */ = {
+			isa = PBXGroup;
+			children = (
+				5E4BEC7D1DB665B0006BD803 /* SAPFlickrLayoutAttributes.h */,
+				5E4BEC7E1DB665B0006BD803 /* SAPFlickrLayoutAttributes.m */,
+			);
+			path = SAPFlickrLayoutAttributes;
+			sourceTree = "<group>";
+		};
+		5E4BEC801DB73E0D006BD803 /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				5E4BEC841DB73E68006BD803 /* SAPFlickrContext.h */,
+				5E4BEC851DB73E68006BD803 /* SAPFlickrContext.m */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
 		5EC2D5591DB4C3F000016473 = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +271,8 @@
 				5EC2D57C1DB4C4D800016473 /* Source */,
 				5EC2D57D1DB4C50400016473 /* Resources */,
 				5EC2D5631DB4C3F000016473 /* Products */,
+				D750DFCE86DB5129B620060F /* Pods */,
+				79F68B04F99B5DEBA18921CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,9 +299,10 @@
 		5EC2D57C1DB4C4D800016473 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				5EC2D5801DB4C56500016473 /* Library */,
-				5EC2D5811DB4C56500016473 /* Models */,
 				5EC2D5821DB4C56500016473 /* UI */,
+				5EC2D5811DB4C56500016473 /* Models */,
+				5E4BEC801DB73E0D006BD803 /* Contexts */,
+				5EC2D5801DB4C56500016473 /* Library */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -279,6 +330,8 @@
 		5EC2D5811DB4C56500016473 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5EC2D6A41DB60DAE00016473 /* SAPFlickrImage.h */,
+				5EC2D6A51DB60DAE00016473 /* SAPFlickrImage.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,6 +339,9 @@
 		5EC2D5821DB4C56500016473 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5EC2D6901DB569A100016473 /* SAPFlickrCollectionViewController */,
+				5EC2D69A1DB569A100016473 /* SAPFlickrLayout */,
+				5E4BEC7C1DB6657E006BD803 /* SAPFlickrLayoutAttributes */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -306,6 +362,7 @@
 				5EC2D5C01DB4C76400016473 /* NSURL */,
 				5EC2D5C31DB4C76400016473 /* UIAlertAction */,
 				5EC2D5C61DB4C76400016473 /* UIAlertController */,
+				5EC2D6821DB4D92D00016473 /* UICollectionView */,
 				5EC2D5C91DB4C76400016473 /* UINib */,
 				5EC2D5CC1DB4C76400016473 /* UITableView */,
 				5EC2D5CF1DB4C76400016473 /* UIWindow */,
@@ -609,7 +666,6 @@
 			children = (
 				5EC2D5D81DB4C76400016473 /* SAPCoreDataArrayModel */,
 				5EC2D5DB1DB4C76400016473 /* SAPCoreDataController */,
-				5EC2D5DE1DB4C76400016473 /* SAPMagicalRecordViewController */,
 				5EC2D5E11DB4C76400016473 /* SAPManagedObject */,
 			);
 			path = "Core Data";
@@ -631,15 +687,6 @@
 				5EC2D5DD1DB4C76400016473 /* SAPCoreDataController.m */,
 			);
 			path = SAPCoreDataController;
-			sourceTree = "<group>";
-		};
-		5EC2D5DE1DB4C76400016473 /* SAPMagicalRecordViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5EC2D5DF1DB4C76400016473 /* SAPMagicalRecordViewController.h */,
-				5EC2D5E01DB4C76400016473 /* SAPMagicalRecordViewController.m */,
-			);
-			path = SAPMagicalRecordViewController;
 			sourceTree = "<group>";
 		};
 		5EC2D5E11DB4C76400016473 /* SAPManagedObject */ = {
@@ -931,6 +978,64 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		5EC2D6821DB4D92D00016473 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				5EC2D6831DB4D92D00016473 /* UICollectionView+SAPExtensions.h */,
+				5EC2D6841DB4D92D00016473 /* UICollectionView+SAPExtensions.m */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		5EC2D6901DB569A100016473 /* SAPFlickrCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5EC2D6911DB569A100016473 /* SAPFlickrCollectionViewController.h */,
+				5EC2D6921DB569A100016473 /* SAPFlickrCollectionViewController.m */,
+				5EC2D6931DB569A100016473 /* SAPFlickrCollectionViewController.xib */,
+				5EC2D6941DB569A100016473 /* SAPFlickrImageCell */,
+				5EC2D6981DB569A100016473 /* SAPFlickrImagesView.h */,
+				5EC2D6991DB569A100016473 /* SAPFlickrImagesView.m */,
+			);
+			path = SAPFlickrCollectionViewController;
+			sourceTree = "<group>";
+		};
+		5EC2D6941DB569A100016473 /* SAPFlickrImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				5EC2D6951DB569A100016473 /* SAPFlickrImageCell.h */,
+				5EC2D6961DB569A100016473 /* SAPFlickrImageCell.m */,
+				5EC2D6971DB569A100016473 /* SAPFlickrImageCell.xib */,
+			);
+			path = SAPFlickrImageCell;
+			sourceTree = "<group>";
+		};
+		5EC2D69A1DB569A100016473 /* SAPFlickrLayout */ = {
+			isa = PBXGroup;
+			children = (
+				5EC2D69B1DB569A100016473 /* SAPFlickrLayout.h */,
+				5EC2D69C1DB569A100016473 /* SAPFlickrLayout.m */,
+			);
+			path = SAPFlickrLayout;
+			sourceTree = "<group>";
+		};
+		79F68B04F99B5DEBA18921CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13114BB85ACFE9B9B8412D75 /* libPods-FlickrTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D750DFCE86DB5129B620060F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06F32732C748A6CCA9776844 /* Pods-FlickrTest.debug.xcconfig */,
+				49A3207A30F867F36DDFBEE6 /* Pods-FlickrTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -938,9 +1043,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5EC2D5791DB4C3F000016473 /* Build configuration list for PBXNativeTarget "FlickrTest" */;
 			buildPhases = (
+				E5C739355EA185DFA51C3389 /* [CP] Check Pods Manifest.lock */,
 				5EC2D55E1DB4C3F000016473 /* Sources */,
 				5EC2D55F1DB4C3F000016473 /* Frameworks */,
 				5EC2D5601DB4C3F000016473 /* Resources */,
+				4AE63D8000CBC265EA9D8DE2 /* [CP] Embed Pods Frameworks */,
+				B8172AE5233BD77FC8B0A865 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -989,6 +1097,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EC2D6A01DB569A100016473 /* SAPFlickrImageCell.xib in Resources */,
+				5EC2D69E1DB569A100016473 /* SAPFlickrCollectionViewController.xib in Resources */,
 				5EC2D57F1DB4C52500016473 /* Assets.xcassets in Resources */,
 				5EC2D6741DB4C76400016473 /* SAPActivityIndicator.xib in Resources */,
 				5EC2D5751DB4C3F000016473 /* LaunchScreen.storyboard in Resources */,
@@ -996,6 +1106,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4AE63D8000CBC265EA9D8DE2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlickrTest/Pods-FlickrTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8172AE5233BD77FC8B0A865 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlickrTest/Pods-FlickrTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5C739355EA185DFA51C3389 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5EC2D55E1DB4C3F000016473 /* Sources */ = {
@@ -1015,8 +1173,11 @@
 				5EC2D64D1DB4C76400016473 /* NSIndexPath+SAPExtensions.m in Sources */,
 				5EC2D66B1DB4C76400016473 /* SAPModel.m in Sources */,
 				5EC2D6771DB4C76400016473 /* SAPView.m in Sources */,
+				5E4BEC7F1DB665B0006BD803 /* SAPFlickrLayoutAttributes.m in Sources */,
 				5EC2D6551DB4C76400016473 /* UIAlertAction+SAPExtensions.m in Sources */,
+				5EC2D69D1DB569A100016473 /* SAPFlickrCollectionViewController.m in Sources */,
 				5EC2D6681DB4C76400016473 /* UITableView+SAPCollectionChangeModel.m in Sources */,
+				5E4BEC861DB73E68006BD803 /* SAPFlickrContext.m in Sources */,
 				5EC2D6721DB4C76400016473 /* SAPViewController.m in Sources */,
 				5EC2D6421DB4C76400016473 /* CGGeometry+SAPExtensions.m in Sources */,
 				5EC2D6581DB4C76400016473 /* UITableView+SAPExtensions.m in Sources */,
@@ -1024,8 +1185,13 @@
 				5EC2D66C1DB4C76400016473 /* SAPNumberGeneratorArray.m in Sources */,
 				5EC2D6441DB4C76400016473 /* NSArray+SAPJSONArray.m in Sources */,
 				5EC2D6781DB4C76400016473 /* SAPDispatch.m in Sources */,
+				5EC2D69F1DB569A100016473 /* SAPFlickrImageCell.m in Sources */,
+				5EC2D6A21DB569A100016473 /* SAPFlickrLayout.m in Sources */,
+				5EC2D6A11DB569A100016473 /* SAPFlickrImagesView.m in Sources */,
 				5EC2D56A1DB4C3F000016473 /* AppDelegate.m in Sources */,
 				5EC2D6761DB4C76400016473 /* SAPTableViewCell.m in Sources */,
+				5EC2D6851DB4D92D00016473 /* UICollectionView+SAPExtensions.m in Sources */,
+				5EC2D6A61DB60DAE00016473 /* SAPFlickrImage.m in Sources */,
 				5EC2D64E1DB4C76400016473 /* NSNumber+SAPExtentions.m in Sources */,
 				5EC2D64A1DB4C76400016473 /* NSURL+SAPJSONURL.m in Sources */,
 				5EC2D6501DB4C76400016473 /* NSObject+SAPExtensions.m in Sources */,
@@ -1034,7 +1200,6 @@
 				5EC2D6561DB4C76400016473 /* UIAlertController+SAPExtensions.m in Sources */,
 				5EC2D6511DB4C76400016473 /* NSPathUtilities+SAPExtensions.m in Sources */,
 				5EC2D6731DB4C76400016473 /* SAPActivityIndicator.m in Sources */,
-				5EC2D65D1DB4C76400016473 /* SAPMagicalRecordViewController.m in Sources */,
 				5EC2D6611DB4C76400016473 /* SAPCollectionChangeDoubleIndexModel.m in Sources */,
 				5EC2D65A1DB4C76400016473 /* SAPContext.m in Sources */,
 				5EC2D6621DB4C76400016473 /* SAPCollectionChangeIndexModel+UITableView.m in Sources */,
@@ -1168,6 +1333,7 @@
 		};
 		5EC2D57A1DB4C3F000016473 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06F32732C748A6CCA9776844 /* Pods-FlickrTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FlickrTest/Info.plist;
@@ -1179,6 +1345,7 @@
 		};
 		5EC2D57B1DB4C3F000016473 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49A3207A30F867F36DDFBEE6 /* Pods-FlickrTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FlickrTest/Info.plist;
@@ -1207,6 +1374,7 @@
 				5EC2D57B1DB4C3F000016473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -5,6 +5,7 @@
 //  Created by S A P on 11/24/15.
 //  Copyright © 2015 Yosemite Retail. All rights reserved.
 //
+#import <UIKit/NSStringDrawing.h>
 
 #import "NSString+SAPExtensions.h"
 
@@ -87,6 +88,16 @@ static const unichar kSAPLastNumberSign = '9';
     }
     
     return [result copy];
+}
+
+- (CGFloat)heigthWithFont:(UIFont *)font width:(CGFloat)width {
+    if (self.length == 0) {
+        return 0;
+    }
+    
+    CGRect rect = [self boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil];
+    
+    return ceil(rect.size.height);
 }
 
 @end

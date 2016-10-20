@@ -80,7 +80,7 @@
     SAPDispatchAsyncOnMainQueue(^{
         self.mainView.loadingViewVisible = NO;
         if (error) {
-            [UIAlertController showWithError:error viewController:self];
+            [UIAlertController presentWithError:error];
         }
     });
 }
