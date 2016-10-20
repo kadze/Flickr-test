@@ -299,10 +299,10 @@
 		5EC2D57C1DB4C4D800016473 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				5EC2D5801DB4C56500016473 /* Library */,
+				5EC2D5821DB4C56500016473 /* UI */,
 				5EC2D5811DB4C56500016473 /* Models */,
 				5E4BEC801DB73E0D006BD803 /* Contexts */,
-				5EC2D5821DB4C56500016473 /* UI */,
+				5EC2D5801DB4C56500016473 /* Library */,
 			);
 			path = Source;
 			sourceTree = "<group>";

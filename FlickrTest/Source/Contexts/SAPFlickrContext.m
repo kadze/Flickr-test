@@ -104,7 +104,9 @@ static NSString * const kSAPRealNameKey     = @"realname";
                            kSAPSearchTag,
                            kSAPItemsPrePage];
     NSURL *url = [NSURL URLWithString:urlString];
+    SAPWeakify(self);
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        SAPStrongify(self);
         if (!error) {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             self.searchResult = [[json objectForKey:kSAPPhotosKey] objectForKey:kSAPPhotoKey];
