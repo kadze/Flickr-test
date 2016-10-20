@@ -16,7 +16,7 @@
 
 #import "SAPDispatch.h"
 
-//static NSInteger const TEMPITEMSCOUNT = 50;
+static NSInteger const TEMPITEMSCOUNT = 50;
 static NSString * const kSAPFlickrAPIKey    = @"be98568c74f05ca89feff5188454f5a4";
 static NSString * const kSAPSearchTag       = @"Kharkov";
 static NSString * const kSAPTitleKey        = @"title";
@@ -24,24 +24,11 @@ static NSString * const kSAPCommentKey      = @"description";
 
 @interface SAPFlickrContext ()
 @property (nonatomic, readonly) SAPArrayModel *images;
-@property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 @property (nonatomic, strong) NSArray *searchResult;
 
 @end
 
 @implementation SAPFlickrContext
-
-#pragma mark -
-#pragma mark Initializaions and Deallocations
-
-- (instancetype)initWithModel:(id)model {
-    self = [super initWithModel:model];
-    if (self) {
-        self.sessionManager = [AFHTTPSessionManager manager];
-    }
-    
-    return self;
-}
 
 #pragma mark -
 #pragma mark Accessors
@@ -55,9 +42,11 @@ static NSString * const kSAPCommentKey      = @"description";
 
 - (void)stateUnsafeLoad {
     [self search];
+    [self fillModelWithSearchResult];
+    [self loadDescriptions];
+//    [self loadImages];
     
-    
-//    //temporary code
+    //temporary code
 //    SAPArrayModel *images = self.model;
 //    UIImage *image = [UIImage imageNamed:@"orbit"];
 //    NSString *shortTestComment = @"My short test comment";
@@ -71,44 +60,56 @@ static NSString * const kSAPCommentKey      = @"description";
 //            flickrImage.comment = testComment;
 //        }
 //        
-//        flickrImage.caption = @"My test caption";
+//        flickrImage.title = @"My test caption";
 //        [images addObject:flickrImage];
 //    }
 //    
 //    SAPModel *model = images;
 //    self.model = model;
-//    SAPModel *model = self.model;
     
+    
+//    SAPModel *model = self.model;
+//
 //    @synchronized (model) {
 //        model.state = kSAPModelStateDidFinishLoading;
 //    }
 }
 
-- (void)fillModelWithResponceDictionary:(NSDictionary *)responceDictionary {
-    SAPModel *model = self.model;
-    @synchronized (model) {
-        model.state = kSAPModelStateDidFinishLoading;
-    }
-}
-
 - (void)search {
-    NSString *urlString = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&tags=%@&per_page=10&format=json&nojsoncallback=1", kSAPFlickrAPIKey, kSAPSearchTag];
+//    dispatch_group_t searchGroup = dispatch_group_create();
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
-    [self.sessionManager GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
-     {
-         NSDictionary *responceDictionary = responseObject;
-         self.searchResult = [[responceDictionary objectForKey:@"photos"] objectForKey:@"photo"];
-         [self fillModelWithSearchResult];
-         [self loadDescriptions];
-     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"my error with wrong flickr api use"
-                                                             message:[error localizedDescription]
-                                                            delegate:nil
-                                                   cancelButtonTitle:@"Ok"
-                                                   otherButtonTitles:nil];
-         
-         [alertView show];
-     }];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&tags=%@&per_page=10&format=json&nojsoncallback=1", kSAPFlickrAPIKey, kSAPSearchTag];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+//    dispatch_group_enter(searchGroup);
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            self.searchResult = [[json objectForKey:@"photos"] objectForKey:@"photo"];
+            
+//            dispatch_group_leave(searchGroup);
+            dispatch_semaphore_signal(semaphore);
+        } else {
+            NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"my error with wrong flickr api use"
+                                                                message:[error localizedDescription]
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Ok"
+                                                      otherButtonTitles:nil];
+            
+            [alertView show];
+//            dispatch_group_leave(searchGroup);
+            dispatch_semaphore_signal(semaphore);
+        }
+    }];
+    
+    [dataTask resume];
+    
+//    dispatch_group_wait(searchGroup, DISPATCH_TIME_FOREVER);
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
 - (void)fillModelWithSearchResult {
@@ -122,6 +123,11 @@ static NSString * const kSAPCommentKey      = @"description";
                                 [imageInfo objectForKey:@"server"],
                                 [imageInfo objectForKey:@"id"],
                                 [imageInfo objectForKey:@"secret"]];
+        
+        //
+        UIImage *image = [UIImage imageNamed:@"orbit"];
+        imageModel.image = image;
+        //
         
         [images addObject:imageModel];
     }
@@ -155,7 +161,30 @@ static NSString * const kSAPCommentKey      = @"description";
 }
 
 - (void)loadImages {
+    dispatch_group_t group = dispatch_group_create();
     
+    SAPArrayModel *images = self.images;
+    for (NSUInteger index = 0; index < images.count; index++) {
+        SAPFlickrImage *imageModel = images[index];
+        
+        dispatch_group_enter(group);
+    
+        NSURL *url = [NSURL URLWithString:imageModel.urlString];
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if (!error) {
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                imageModel.comment = [[[json objectForKey:@"photo"] objectForKey:kSAPCommentKey] objectForKey:@"_content"];
+                dispatch_group_leave(group);
+            } else {
+                NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            }
+        }];
+        
+        [dataTask resume];
+    }
+    
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 }
 
 @end
