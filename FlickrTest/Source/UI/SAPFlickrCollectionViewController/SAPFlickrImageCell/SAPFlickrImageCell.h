@@ -15,6 +15,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView  *imageView;
 @property (nonatomic, strong) IBOutlet UILabel      *captionLabel;
 @property (nonatomic, strong) IBOutlet UILabel      *commentLabel;
+@property (nonatomic, strong) IBOutlet UILabel      *authorLabel;
 
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *imageHeightConstraint;
 

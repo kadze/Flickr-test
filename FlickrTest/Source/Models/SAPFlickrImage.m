@@ -17,6 +17,10 @@
 #pragma mark Public
 
 - (CGFloat)heigthForCommentWithFont:(UIFont *)font width:(CGFloat)width {
+    if (self.comment == nil || self.comment.length == 0) {
+        return 0;
+    }
+    
     CGRect rect = [self.comment boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil];
     
     return ceil(rect.size.height);

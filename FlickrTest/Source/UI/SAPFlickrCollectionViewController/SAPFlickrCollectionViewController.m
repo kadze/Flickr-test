@@ -108,7 +108,7 @@ heightForAnnotationAtIndexPath:(NSIndexPath *)indexPath
                      withWidth:(CGFloat)width
 {
     SAPFlickrImage *flickrImage = self.images[indexPath.row];
-    UIFont *font = [UIFont systemFontOfSize:14.0];
+    UIFont *font = [UIFont systemFontOfSize:12.0];
     CGFloat commentHeight = [flickrImage heigthForCommentWithFont:font width:width];
     CGFloat height = kSAPAnnotationPadding + kSAPAnnotationHeaderHeight + commentHeight + kSAPAnnotationPadding;
     

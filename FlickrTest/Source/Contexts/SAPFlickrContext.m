@@ -17,7 +17,7 @@
 #import "SAPDispatch.h"
 #import "SAPOwnershipMacro.h"
 
-static NSString * const kSAPSearchTag       = @"meteora";
+static NSString * const kSAPSearchTag       = @"audi";
 static NSUInteger const kSAPItemsPrePage    = 20;
 
 static NSString * const kSAPFlickrAPIKey    = @"be98568c74f05ca89feff5188454f5a4";
@@ -32,6 +32,8 @@ static NSString * const kSAPFarmKey         = @"farm";
 static NSString * const kSAPServerKey       = @"server";
 static NSString * const kSAPSecretKey       = @"secret";
 static NSString * const kSAPContentKey      = @"_content";
+static NSString * const kSAPOwnerKey        = @"owner";
+static NSString * const kSAPRealNameKey     = @"realname";
 
 @interface SAPFlickrContext ()
 @property (nonatomic, readonly) SAPArrayModel   *images;
@@ -145,6 +147,8 @@ static NSString * const kSAPContentKey      = @"_content";
             if (!error) {
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 imageModel.comment = [[[json objectForKey:kSAPPhotoKey] objectForKey:kSAPCommentKey] objectForKey:kSAPContentKey];
+                imageModel.author = [[[json objectForKey:kSAPPhotoKey] objectForKey:kSAPOwnerKey] objectForKey:kSAPRealNameKey];
+                
                 dispatch_group_leave(group);
             } else {
                 NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
