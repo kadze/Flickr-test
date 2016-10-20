@@ -17,7 +17,7 @@
 #import "SAPDispatch.h"
 #import "SAPOwnershipMacro.h"
 
-static NSString * const kSAPSearchTag       = @"audi";
+static NSString * const kSAPSearchTag       = @"sunset";
 static NSUInteger const kSAPItemsPrePage    = 20;
 
 static NSString * const kSAPFlickrAPIKey    = @"be98568c74f05ca89feff5188454f5a4";

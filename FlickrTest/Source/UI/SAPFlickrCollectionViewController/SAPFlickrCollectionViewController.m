@@ -18,11 +18,14 @@
 #import "SAPFlickrContext.h"
 
 #import "UINib+SAPExtensions.h"
+#import "NSString+SAPExtensions.h"
 
 #import "SAPViewControllerMacro.h"
 
-static CGFloat const kSAPAnnotationPadding      = 4.0;
-static CGFloat const kSAPAnnotationHeaderHeight = 20.0;
+static CGFloat const kSAPAnnotationPadding      = 0.0;
+static CGFloat const kSAPTitleFontSize = 12.0;
+static CGFloat const kSAPCommentFontSize = 11.0;
+static CGFloat const kSAPAuthorFontSize = 12.0;
 
 SAPViewControllerBaseViewProperty(SAPFlickrCollectionViewController, SAPFlickrImagesView, mainView);
 
@@ -108,9 +111,15 @@ heightForAnnotationAtIndexPath:(NSIndexPath *)indexPath
                      withWidth:(CGFloat)width
 {
     SAPFlickrImage *flickrImage = self.images[indexPath.row];
-    UIFont *font = [UIFont systemFontOfSize:12.0];
-    CGFloat commentHeight = [flickrImage heigthForCommentWithFont:font width:width];
-    CGFloat height = kSAPAnnotationPadding + kSAPAnnotationHeaderHeight + commentHeight + kSAPAnnotationPadding;
+    UIFont *titleFont = [UIFont systemFontOfSize:kSAPTitleFontSize];
+    UIFont *commentFont = [UIFont systemFontOfSize:kSAPCommentFontSize];
+    UIFont *authorFont = [UIFont systemFontOfSize:kSAPAuthorFontSize];
+    
+    CGFloat titleHeight = [flickrImage.title heigthWithFont:titleFont width:width];
+    CGFloat commentHeight = [flickrImage.comment heigthWithFont:commentFont width:width];
+    CGFloat authorHeight = [flickrImage.author heigthWithFont:authorFont width:width];
+    
+    CGFloat height = kSAPAnnotationPadding + titleHeight + commentHeight + authorHeight + kSAPAnnotationPadding;
     
     return height;
 }

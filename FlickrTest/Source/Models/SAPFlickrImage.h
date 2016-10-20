@@ -19,6 +19,6 @@
 @property (nonatomic, copy) NSString    *urlString;
 @property (nonatomic, copy) NSString    *author;
 
-- (CGFloat)heigthForCommentWithFont:(UIFont *)font width:(CGFloat)width;
+- (CGFloat)heigthForString:(NSString *)string withFont:(UIFont *)font width:(CGFloat)width;
 
 @end

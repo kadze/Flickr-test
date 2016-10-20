@@ -20,6 +20,9 @@ static CGFloat const kSAPCornerRadius = 8.0;
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.view.layer.cornerRadius = kSAPCornerRadius;
+//    UILabel *authorLabel = self.authorLabel;
+//    authorLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+//    authorLabel.layer.borderWidth = 1.0;
 }
 
 #pragma mark -

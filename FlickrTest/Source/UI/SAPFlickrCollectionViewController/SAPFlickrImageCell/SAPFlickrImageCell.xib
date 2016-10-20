@@ -29,34 +29,33 @@
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8Zf-Hx-YeR">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffN-ai-udI">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="10" id="Kcg-ws-yF9"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffN-ai-udI">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhq-w5-I0O">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="10" id="WF0-dV-Dgu"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1o-T4-kAP">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPc-hv-XyC">
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="75" id="XbU-s6-Os3"/>
+                                            <constraint firstAttribute="height" constant="1" id="b89-pM-Gn4"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="AUTHOR" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1o-T4-kAP">
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="RPc-hv-XyC" firstAttribute="top" secondItem="rhq-w5-I0O" secondAttribute="bottom" id="1hm-uw-EJX"/>
                                     <constraint firstAttribute="bottom" secondItem="R1o-T4-kAP" secondAttribute="bottom" id="5ua-R4-Wya"/>
                                     <constraint firstItem="rhq-w5-I0O" firstAttribute="leading" secondItem="8Zf-Hx-YeR" secondAttribute="leading" id="AxC-ob-kjj"/>
+                                    <constraint firstItem="R1o-T4-kAP" firstAttribute="top" secondItem="RPc-hv-XyC" secondAttribute="bottom" id="LoH-Ps-i7d"/>
                                     <constraint firstAttribute="trailing" secondItem="rhq-w5-I0O" secondAttribute="trailing" id="RLD-d7-dKt"/>
                                     <constraint firstAttribute="trailing" secondItem="R1o-T4-kAP" secondAttribute="trailing" id="VLc-2O-1hc"/>
                                     <constraint firstItem="R1o-T4-kAP" firstAttribute="leading" secondItem="8Zf-Hx-YeR" secondAttribute="leading" id="XtK-iX-yeT"/>
@@ -90,13 +89,11 @@
             </constraints>
             <size key="customSize" width="231" height="223"/>
             <connections>
-                <outlet property="authorHeightConstraint" destination="XbU-s6-Os3" id="1xW-9E-P3O"/>
                 <outlet property="authorLabel" destination="R1o-T4-kAP" id="eVw-mi-pdC"/>
-                <outlet property="commentHeightConstraint" destination="WF0-dV-Dgu" id="mKI-yt-SbX"/>
                 <outlet property="commentLabel" destination="rhq-w5-I0O" id="IRE-6e-27a"/>
                 <outlet property="imageHeightConstraint" destination="6CQ-1X-vak" id="1QH-PN-qfu"/>
                 <outlet property="imageView" destination="BIA-kI-ok4" id="94v-b2-ZLv"/>
-                <outlet property="titleHeightConstraint" destination="Kcg-ws-yF9" id="30U-4v-gIz"/>
+                <outlet property="separatorView" destination="RPc-hv-XyC" id="fHc-J3-xQ2"/>
                 <outlet property="titleLabel" destination="ffN-ai-udI" id="7tr-Ra-5oW"/>
                 <outlet property="view" destination="XjD-Uf-QL4" id="sHN-QX-UFz"/>
             </connections>
