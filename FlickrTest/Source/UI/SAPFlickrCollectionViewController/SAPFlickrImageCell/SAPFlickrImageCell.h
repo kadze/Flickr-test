@@ -19,8 +19,5 @@
 @property (nonatomic, strong) IBOutlet UILabel      *authorLabel;
 
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *imageHeightConstraint;
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *titleHeightConstraint;
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *commentHeightConstraint;
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *authorHeightConstraint;
 
 @end

@@ -72,6 +72,8 @@ SAPFlickrLayoutDelegate>
     Class cellClass = [SAPFlickrImageCell class];
     UINib *nib = [UINib nibWithClass:cellClass];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass(cellClass)];
+    
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 3, 40, 3);
 }
 
 #pragma mark -

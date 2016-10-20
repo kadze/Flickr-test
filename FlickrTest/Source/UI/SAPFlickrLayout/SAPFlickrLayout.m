@@ -11,7 +11,7 @@
 #import "SAPFlickrLayoutAttributes.h"
 
 static NSUInteger const kSAPColumnsCount    = 2;
-static CGFloat const kSAPCellPadding        = 10.0;
+static CGFloat const kSAPCellPadding        = 5.0;
 
 @interface SAPFlickrLayout()
 @property (nonatomic, assign)           CGFloat contentHeight;
