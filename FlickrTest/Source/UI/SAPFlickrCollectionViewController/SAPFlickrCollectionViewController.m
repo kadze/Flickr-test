@@ -25,8 +25,6 @@
 static CGFloat const kSAPAnnotationPadding      = 4.0;
 static CGFloat const kSAPAnnotationHeaderHeight = 20.0;
 
-static NSInteger const TEMPITEMSCOUNT = 50;
-
 SAPViewControllerBaseViewProperty(SAPFlickrCollectionViewController, SAPFlickrImagesView, mainView);
 
 @interface SAPFlickrCollectionViewController () <
@@ -72,36 +70,15 @@ SAPFlickrLayoutDelegate>
     Class cellClass = [SAPFlickrImageCell class];
     UINib *nib = [UINib nibWithClass:cellClass];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass(cellClass)];
-    
-    //temporary code
-    UIImage *image = [UIImage imageNamed:@"orbit"];
-    NSString *shortTestComment = @"My short test comment";
-    NSString *testComment = @"My test comment bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ";
-    for (NSUInteger index = 0; index < TEMPITEMSCOUNT; index++) {
-        SAPFlickrImage *flickrImage = [SAPFlickrImage new];
-        flickrImage.image = image;
-        if (index % 3 == 0) {
-            flickrImage.comment = shortTestComment;
-        } else {
-            flickrImage.comment = testComment;
-        }
-        
-        flickrImage.caption = @"My test caption";
-        [self.images addObject:flickrImage];
-    }
-    
-//    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
-//    flowLayout.itemSize = CGSizeMake(40, 40);
-    
-    
-//    flowLayout.headerReferenceSize = CGSizeMake(self.collectionView.bounds.size.width, 60);
 }
 
 #pragma mark -
 #pragma mark UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return TEMPITEMSCOUNT;
+    SAPArrayModel *items = self.model;
+    
+    return items.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -142,9 +119,9 @@ heightForAnnotationAtIndexPath:(NSIndexPath *)indexPath
 #pragma mark -
 #pragma mark Public
 
-//- (void)updateViewControllerWithModel:(id)model {
-//    self.mainView.model = model;
-//}
+- (void)updateViewControllerWithModel:(id)model {
+    [self.collectionView reloadData];
+}
 
 - (void)finishModelSetting {
     self.context = self.modelContext;

@@ -108,8 +108,4 @@ static CGFloat const kSAPCellPadding        = 8.0;
     return layoutAttributes;
 }
 
-//- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    return self.cache[indexPath.row];
-//}
-
 @end

@@ -9,10 +9,14 @@
 
 #import "SAPModel.h"
 
+@class UIFont;
+
 @interface SAPFlickrImage : SAPModel
 @property (nonatomic, strong) UIImage   *image;
-@property (nonatomic, copy) NSString    *caption;
+@property (nonatomic, copy) NSString    *title;
 @property (nonatomic, copy) NSString    *comment;
+@property (nonatomic, copy) NSString    *ID;
+@property (nonatomic, copy) NSString    *urlString;
 
 - (CGFloat)heigthForCommentWithFont:(UIFont *)font width:(CGFloat)width;
 

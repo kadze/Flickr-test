@@ -11,13 +11,15 @@
 #import "SAPFlickrImage.h"
 #import "SAPFlickrLayoutAttributes.h"
 
+static CGFloat const kSAPCornerRadius = 5.0;
+
 @implementation SAPFlickrImageCell
 
 @synthesize model = _model;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.view.layer.cornerRadius = 5.0;
+    self.view.layer.cornerRadius = kSAPCornerRadius;
 }
 
 #pragma mark -
@@ -36,7 +38,7 @@
 
 - (void)fillWithModel:(SAPFlickrImage *)model {
     self.imageView.image = model.image;
-    self.captionLabel.text = model.caption;
+    self.captionLabel.text = model.title;
     self.commentLabel.text = model.comment;
 }
 
