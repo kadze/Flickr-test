@@ -13,6 +13,9 @@
 
 @implementation SAPFlickrImage
 
+#pragma mark -
+#pragma mark Public
+
 - (CGFloat)heigthForCommentWithFont:(UIFont *)font width:(CGFloat)width {
     CGRect rect = [self.comment boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil];
     

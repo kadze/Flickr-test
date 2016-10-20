@@ -17,7 +17,6 @@
 #import "SAPFlickrImage.h"
 #import "SAPFlickrContext.h"
 
-#import "UICollectionView+SAPExtensions.h"
 #import "UINib+SAPExtensions.h"
 
 #import "SAPViewControllerMacro.h"
@@ -84,7 +83,6 @@ SAPFlickrLayoutDelegate>
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                            cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    SAPFlickrImageCell *cell = [collectionView cellWithClass: forIndexPath:indexPath];
     SAPFlickrImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SAPFlickrImageCell class]) forIndexPath:indexPath];
     cell.model = self.images[indexPath.row];
     

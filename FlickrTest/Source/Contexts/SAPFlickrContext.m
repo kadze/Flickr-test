@@ -34,8 +34,14 @@ static NSString * const kSAPSecretKey       = @"secret";
 static NSString * const kSAPContentKey      = @"_content";
 
 @interface SAPFlickrContext ()
-@property (nonatomic, readonly) SAPArrayModel *images;
-@property (nonatomic, strong) NSArray *searchResult;
+@property (nonatomic, readonly) SAPArrayModel   *images;
+@property (nonatomic, strong)   NSArray         *searchResult;
+
+- (void)performBackgroundExecution;
+- (void)search;
+- (void)fillModelWithSearchResult;
+- (void)loadDescriptions;
+- (void)loadImages;
 
 @end
 
@@ -57,7 +63,6 @@ static NSString * const kSAPContentKey      = @"_content";
         SAPStrongifyAndReturnIfNil(self);
         [self performBackgroundExecution];
     });
-    
 }
 
 #pragma mark -
@@ -73,7 +78,6 @@ static NSString * const kSAPContentKey      = @"_content";
     @synchronized (model) {
         model.state = kSAPModelStateDidFinishLoading;
     }
-
 }
 
 - (void)search {
