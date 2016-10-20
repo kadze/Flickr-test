@@ -38,6 +38,7 @@ static NSString * const kSAPRealNameKey     = @"realname";
 
 @interface SAPFlickrContext ()
 @property (nonatomic, readonly) SAPArrayModel   *images;
+@property (nonatomic, readonly) NSURLSession    *session;
 @property (nonatomic, strong)   NSArray         *searchResult;
 
 - (void)performBackgroundExecution;
@@ -50,11 +51,23 @@ static NSString * const kSAPRealNameKey     = @"realname";
 
 @implementation SAPFlickrContext
 
+@dynamic images, session;
+
 #pragma mark -
 #pragma mark Accessors
 
 - (SAPArrayModel *)images {
     return self.model;
+}
+
+- (NSURLSession *)session {
+    static NSURLSession *session = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    });
+    
+    return session;
 }
 
 #pragma mark -
@@ -91,9 +104,7 @@ static NSString * const kSAPRealNameKey     = @"realname";
                            kSAPSearchTag,
                            kSAPItemsPrePage];
     NSURL *url = [NSURL URLWithString:urlString];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             self.searchResult = [[json objectForKey:kSAPPhotosKey] objectForKey:kSAPPhotoKey];
@@ -131,13 +142,13 @@ static NSString * const kSAPRealNameKey     = @"realname";
     dispatch_group_t group = dispatch_group_create();
     
     SAPArrayModel *images = self.images;
+    NSURLSession *session = self.session;
     for (NSUInteger index = 0; index < images.count; index++) {
         SAPFlickrImage *imageModel = images[index];
         
         dispatch_group_enter(group);
         NSString *urlString = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=%@&photo_id=%@&format=json&nojsoncallback=1" , kSAPFlickrAPIKey, imageModel.ID];
         NSURL *url = [NSURL URLWithString:urlString];
-        NSURLSession *session = [NSURLSession sharedSession];
         NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (!error) {
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
@@ -161,13 +172,13 @@ static NSString * const kSAPRealNameKey     = @"realname";
 - (void)loadImages {
     dispatch_group_t group = dispatch_group_create();
     
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    NSURLSession *session = self.session;
     
     SAPArrayModel *images = self.images;
     for (NSUInteger index = 0; index < images.count; index++) {
         dispatch_group_enter(group);
         
-        SAPDispatchSyncOnDefaultQueue(^{
+        SAPDispatchAsyncOnDefaultQueue(^{
             SAPFlickrImage *imageModel = images[index];
             NSURL *url = [NSURL URLWithString:imageModel.urlString];
             NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
