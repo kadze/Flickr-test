@@ -55,10 +55,10 @@
                                     <constraint firstItem="RPc-hv-XyC" firstAttribute="top" secondItem="rhq-w5-I0O" secondAttribute="bottom" id="1hm-uw-EJX"/>
                                     <constraint firstAttribute="bottom" secondItem="R1o-T4-kAP" secondAttribute="bottom" id="5ua-R4-Wya"/>
                                     <constraint firstItem="rhq-w5-I0O" firstAttribute="leading" secondItem="8Zf-Hx-YeR" secondAttribute="leading" id="AxC-ob-kjj"/>
+                                    <constraint firstItem="R1o-T4-kAP" firstAttribute="leading" secondItem="8Zf-Hx-YeR" secondAttribute="leading" id="IAD-w6-Hj2"/>
                                     <constraint firstItem="R1o-T4-kAP" firstAttribute="top" secondItem="RPc-hv-XyC" secondAttribute="bottom" id="LoH-Ps-i7d"/>
                                     <constraint firstAttribute="trailing" secondItem="rhq-w5-I0O" secondAttribute="trailing" id="RLD-d7-dKt"/>
                                     <constraint firstAttribute="trailing" secondItem="R1o-T4-kAP" secondAttribute="trailing" id="VLc-2O-1hc"/>
-                                    <constraint firstItem="R1o-T4-kAP" firstAttribute="leading" secondItem="8Zf-Hx-YeR" secondAttribute="leading" id="XtK-iX-yeT"/>
                                     <constraint firstItem="ffN-ai-udI" firstAttribute="leading" secondItem="8Zf-Hx-YeR" secondAttribute="leading" id="Y7r-b4-IxS"/>
                                     <constraint firstItem="rhq-w5-I0O" firstAttribute="leading" secondItem="8Zf-Hx-YeR" secondAttribute="leading" id="Zg9-4a-Nzj"/>
                                     <constraint firstItem="rhq-w5-I0O" firstAttribute="top" secondItem="ffN-ai-udI" secondAttribute="bottom" id="d2Z-ao-mYe"/>
@@ -71,7 +71,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8Zf-Hx-YeR" secondAttribute="trailing" id="2LF-h1-8av"/>
-                            <constraint firstItem="8Zf-Hx-YeR" firstAttribute="leading" secondItem="XjD-Uf-QL4" secondAttribute="leading" id="BAr-Hy-407"/>
+                            <constraint firstItem="8Zf-Hx-YeR" firstAttribute="leading" secondItem="XjD-Uf-QL4" secondAttribute="leading" constant="4" id="BAr-Hy-407"/>
                             <constraint firstItem="8Zf-Hx-YeR" firstAttribute="top" secondItem="BIA-kI-ok4" secondAttribute="bottom" id="MDV-tN-eH2"/>
                             <constraint firstAttribute="trailing" secondItem="BIA-kI-ok4" secondAttribute="trailing" id="jxl-T6-XoV"/>
                             <constraint firstAttribute="bottom" secondItem="8Zf-Hx-YeR" secondAttribute="bottom" id="lib-aW-uSp"/>

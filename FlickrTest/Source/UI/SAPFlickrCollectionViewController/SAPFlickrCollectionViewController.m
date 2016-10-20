@@ -26,6 +26,7 @@ static CGFloat const kSAPAnnotationPadding  = 0.0;
 static CGFloat const kSAPTitleFontSize      = 12.0;
 static CGFloat const kSAPCommentFontSize    = 11.0;
 static CGFloat const kSAPAuthorFontSize     = 12.0;
+static CGFloat const kSAPTextLeftInset      = 4;
 
 SAPViewControllerBaseViewProperty(SAPFlickrCollectionViewController, SAPFlickrImagesView, mainView);
 
@@ -122,6 +123,7 @@ SAPFlickrLayoutDelegate>
 heightForAnnotationAtIndexPath:(NSIndexPath *)indexPath
                      withWidth:(CGFloat)width
 {
+    width = width - kSAPTextLeftInset;
     SAPFlickrImage *flickrImage = self.images[indexPath.row];
     UIFont *titleFont = [UIFont systemFontOfSize:kSAPTitleFontSize];
     UIFont *commentFont = [UIFont systemFontOfSize:kSAPCommentFontSize];
