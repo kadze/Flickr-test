@@ -24,13 +24,34 @@
                         <outlet property="delegate" destination="-1" id="0pT-EF-nE8"/>
                     </connections>
                 </collectionView>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wou-VH-pJw">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="RNk-HP-QdG"/>
+                    </constraints>
+                    <textAttributes key="titleTextAttributes">
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="IMAGES" id="iXb-R6-tVt"/>
+                    </items>
+                </navigationBar>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGa-ZD-bRJ">
+                    <items/>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="CGa-ZD-bRJ" secondAttribute="bottom" id="Nkv-Ad-VmY"/>
+                <constraint firstItem="wou-VH-pJw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Np6-Gn-fa9"/>
+                <constraint firstAttribute="trailing" secondItem="CGa-ZD-bRJ" secondAttribute="trailing" id="SUc-d5-U0N"/>
                 <constraint firstItem="Lqd-hO-L4N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XPX-h7-jma"/>
                 <constraint firstAttribute="bottom" secondItem="Lqd-hO-L4N" secondAttribute="bottom" id="YU1-CQ-WLv"/>
-                <constraint firstItem="Lqd-hO-L4N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ayV-tv-i77"/>
+                <constraint firstItem="wou-VH-pJw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="blc-IS-JTH"/>
+                <constraint firstItem="Lqd-hO-L4N" firstAttribute="top" secondItem="wou-VH-pJw" secondAttribute="bottom" id="fCT-Kw-ddM"/>
                 <constraint firstAttribute="trailing" secondItem="Lqd-hO-L4N" secondAttribute="trailing" id="gfV-IL-68w"/>
+                <constraint firstItem="CGa-ZD-bRJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="glF-fz-hFa"/>
+                <constraint firstAttribute="trailing" secondItem="wou-VH-pJw" secondAttribute="trailing" id="nkb-z2-dwc"/>
             </constraints>
             <connections>
                 <outlet property="collectionView" destination="Lqd-hO-L4N" id="r5P-pN-TN5"/>

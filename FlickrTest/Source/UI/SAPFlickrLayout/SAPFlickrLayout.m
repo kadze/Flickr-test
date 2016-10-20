@@ -11,7 +11,7 @@
 #import "SAPFlickrLayoutAttributes.h"
 
 static NSUInteger const kSAPColumnsCount    = 2;
-static CGFloat const kSAPCellPadding        = 8.0;
+static CGFloat const kSAPCellPadding        = 10.0;
 
 @interface SAPFlickrLayout()
 @property (nonatomic, assign)           CGFloat contentHeight;
@@ -83,8 +83,8 @@ static CGFloat const kSAPCellPadding        = 8.0;
             
             CGFloat height = kSAPCellPadding + imageHeight + annotationHeight + kSAPCellPadding;
             CGRect frame = CGRectMake(xOffset[column], yOffset[column], columnWidth, height);
-            CGRect insetFrame = CGRectInset(frame, kSAPCellPadding, kSAPCellPadding);
-            
+//            CGRect insetFrame = CGRectInset(frame, kSAPCellPadding, kSAPCellPadding);
+                CGRect insetFrame = CGRectInset(frame, kSAPCellPadding, kSAPCellPadding);
             SAPFlickrLayoutAttributes *attributes = [SAPFlickrLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
             attributes.imageHeight = imageHeight;
             attributes.frame = insetFrame;

@@ -11,7 +11,7 @@
 #import "SAPFlickrImage.h"
 #import "SAPFlickrLayoutAttributes.h"
 
-static CGFloat const kSAPCornerRadius = 5.0;
+static CGFloat const kSAPCornerRadius = 8.0;
 
 @implementation SAPFlickrImageCell
 
