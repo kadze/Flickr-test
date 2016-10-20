@@ -37,6 +37,8 @@ SAPFlickrLayoutDelegate>
 @property (nonatomic, readonly) SAPArrayModel       *images;
 @property (nonatomic, readonly) UICollectionView    *collectionView;
 
+- (void)presentFullScreenImage:(UIImage *)image;
+
 @end
 
 @implementation SAPFlickrCollectionViewController
@@ -95,6 +97,14 @@ SAPFlickrLayoutDelegate>
 }
 
 #pragma mark -
+#pragma mark UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    SAPFlickrImage *imageModel = self.images[indexPath.row];
+    [self presentFullScreenImage:imageModel.image];
+}
+    
+#pragma mark -
 #pragma mark SAPFlickrLayoutDelegate
 
 - (CGFloat)     collectionView:(UICollectionView *)collectionView
@@ -135,6 +145,39 @@ heightForAnnotationAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)finishModelSetting {
     self.context = self.modelContext;
+}
+
+#pragma mark -
+#pragma mark Interface Handling
+
+- (void)handleSingleTap {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)presentFullScreenImage:(UIImage *)image {
+    UIViewController * imageViewController = [[UIViewController alloc] init];
+    UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurView.frame = self.view.bounds;
+    
+    imageViewController.view.frame = self.view.bounds;
+    imageViewController.view.backgroundColor = [UIColor clearColor];
+    [imageViewController.view insertSubview:blurView atIndex:0];
+    imageViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    
+    [self presentViewController:imageViewController animated:YES completion:nil];
+    
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:imageViewController.view.bounds];
+    imgView.image = image;
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    [imageViewController.view addSubview:imgView];
+    
+    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                      action:@selector(handleSingleTap)];
+    [imageViewController.view addGestureRecognizer:singleFingerTap];
 }
 
 @end
