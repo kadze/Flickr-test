@@ -9,7 +9,6 @@
 
 #import "SAPFlickrContext.h"
 
-#import "AFNetworking.h"
 #import "SAPFlickrImage.h"
 #import "SAPModel.h"
 #import "SAPArrayModel.h"
@@ -100,13 +99,13 @@ static NSString * const kSAPRealNameKey     = @"realname";
             dispatch_semaphore_signal(semaphore);
         } else {
             NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"my error with wrong flickr api use"
-                                                                message:[error localizedDescription]
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"Ok"
-                                                      otherButtonTitles:nil];
+//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"my error with wrong flickr api use"
+//                                                                message:[error localizedDescription]
+//                                                               delegate:nil
+//                                                      cancelButtonTitle:@"Ok"
+//                                                      otherButtonTitles:nil];
             
-            [alertView show];
+//            [alertView show];
             dispatch_semaphore_signal(semaphore);
         }
     }];
