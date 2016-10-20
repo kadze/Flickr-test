@@ -13,6 +13,8 @@
 #import "SAPModel.h"
 #import "SAPArrayModel.h"
 
+#import "UIAlertController+SAPExtensions.h"
+
 #import "SAPDispatch.h"
 #import "SAPOwnershipMacro.h"
 
@@ -41,7 +43,7 @@ static NSString * const kSAPRealNameKey     = @"realname";
 - (void)performBackgroundExecution;
 - (void)search;
 - (void)fillModelWithSearchResult;
-- (void)loadDescriptions;
+- (void)loadDetails;
 - (void)loadImages;
 
 @end
@@ -72,7 +74,7 @@ static NSString * const kSAPRealNameKey     = @"realname";
 - (void)performBackgroundExecution {
     [self search];
     [self fillModelWithSearchResult];
-    [self loadDescriptions];
+    [self loadDetails];
     [self loadImages];
     
     SAPModel *model = self.model;
@@ -95,19 +97,13 @@ static NSString * const kSAPRealNameKey     = @"realname";
         if (!error) {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             self.searchResult = [[json objectForKey:kSAPPhotosKey] objectForKey:kSAPPhotoKey];
-            
-            dispatch_semaphore_signal(semaphore);
         } else {
-            NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"my error with wrong flickr api use"
-//                                                                message:[error localizedDescription]
-//                                                               delegate:nil
-//                                                      cancelButtonTitle:@"Ok"
-//                                                      otherButtonTitles:nil];
-            
-//            [alertView show];
-            dispatch_semaphore_signal(semaphore);
+            SAPDispatchAsyncOnMainQueue(^{
+                [UIAlertController presentWithError:error];
+            });
         }
+        
+        dispatch_semaphore_signal(semaphore);
     }];
     
     [dataTask resume];
@@ -131,7 +127,7 @@ static NSString * const kSAPRealNameKey     = @"realname";
     }
 }
 
-- (void)loadDescriptions {
+- (void)loadDetails {
     dispatch_group_t group = dispatch_group_create();
     
     SAPArrayModel *images = self.images;
@@ -147,11 +143,13 @@ static NSString * const kSAPRealNameKey     = @"realname";
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 imageModel.comment = [[[json objectForKey:kSAPPhotoKey] objectForKey:kSAPCommentKey] objectForKey:kSAPContentKey];
                 imageModel.author = [[[json objectForKey:kSAPPhotoKey] objectForKey:kSAPOwnerKey] objectForKey:kSAPRealNameKey];
-                
-                dispatch_group_leave(group);
             } else {
-                NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                SAPDispatchAsyncOnMainQueue(^{
+                    [UIAlertController presentWithError:error];
+                });
             }
+            
+            dispatch_group_leave(group);
         }];
         
         [dataTask resume];
@@ -173,8 +171,14 @@ static NSString * const kSAPRealNameKey     = @"realname";
             SAPFlickrImage *imageModel = images[index];
             NSURL *url = [NSURL URLWithString:imageModel.urlString];
             NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                UIImage *image = [UIImage imageWithData:data];
-                imageModel.image = image;
+                if (!error) {
+                    UIImage *image = [UIImage imageWithData:data];
+                    imageModel.image = image;
+                } else {
+                    SAPDispatchAsyncOnMainQueue(^{
+                        [UIAlertController presentWithError:error];
+                    });
+                }
                 
                 dispatch_group_leave(group);
             }];
