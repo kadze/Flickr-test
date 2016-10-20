@@ -84,7 +84,8 @@ SAPFlickrLayoutDelegate>
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                            cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    SAPFlickrImageCell *cell = [collectionView cellWithClass:[SAPFlickrImageCell class] forIndexPath:indexPath];
+//    SAPFlickrImageCell *cell = [collectionView cellWithClass: forIndexPath:indexPath];
+    SAPFlickrImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SAPFlickrImageCell class]) forIndexPath:indexPath];
     cell.model = self.images[indexPath.row];
     
     return cell;
