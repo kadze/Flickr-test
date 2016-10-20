@@ -19,6 +19,4 @@
 @property (nonatomic, copy) NSString    *urlString;
 @property (nonatomic, copy) NSString    *author;
 
-- (CGFloat)heigthForString:(NSString *)string withFont:(UIFont *)font width:(CGFloat)width;
-
 @end

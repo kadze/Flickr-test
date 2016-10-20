@@ -22,10 +22,10 @@
 
 #import "SAPViewControllerMacro.h"
 
-static CGFloat const kSAPAnnotationPadding      = 0.0;
-static CGFloat const kSAPTitleFontSize = 12.0;
-static CGFloat const kSAPCommentFontSize = 11.0;
-static CGFloat const kSAPAuthorFontSize = 12.0;
+static CGFloat const kSAPAnnotationPadding  = 0.0;
+static CGFloat const kSAPTitleFontSize      = 12.0;
+static CGFloat const kSAPCommentFontSize    = 11.0;
+static CGFloat const kSAPAuthorFontSize     = 12.0;
 
 SAPViewControllerBaseViewProperty(SAPFlickrCollectionViewController, SAPFlickrImagesView, mainView);
 
