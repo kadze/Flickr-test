@@ -17,11 +17,22 @@
 #pragma mark Public
 
 - (CGFloat)heigthForCommentWithFont:(UIFont *)font width:(CGFloat)width {
-    if (self.comment == nil || self.comment.length == 0) {
+   return [self heigthForString:self.comment withFont:font width:width];
+}
+
+- (CGFloat)heigthForAuthorWithFont:(UIFont *)font width:(CGFloat)width {
+    return [self heigthForString:self.author withFont:font width:width];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (CGFloat)heigthForString:(NSString *)string withFont:(UIFont *)font width:(CGFloat)width {
+    if (string == nil || string.length == 0) {
         return 0;
     }
     
-    CGRect rect = [self.comment boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil];
+    CGRect rect = [string boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil];
     
     return ceil(rect.size.height);
 }

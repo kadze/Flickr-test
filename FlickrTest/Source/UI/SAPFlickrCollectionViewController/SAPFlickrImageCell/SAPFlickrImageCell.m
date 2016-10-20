@@ -38,7 +38,7 @@ static CGFloat const kSAPCornerRadius = 8.0;
 
 - (void)fillWithModel:(SAPFlickrImage *)model {
     self.imageView.image = model.image;
-    self.captionLabel.text = model.title;
+    self.titleLabel.text = model.title;
     self.commentLabel.text = model.comment;
     self.authorLabel.text = model.author;
 }
